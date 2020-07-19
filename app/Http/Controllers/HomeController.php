@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\category;
+use App\Category as AppCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +17,11 @@ class HomeController extends Controller
     }
 
     public function create(){
-
+        $category = category::all();
+        $data =[
+            "category" => $category
+        ];
+        return view('create',$data);
     }
 
     public function update($id){
@@ -30,12 +36,9 @@ class HomeController extends Controller
 
     }
 
-    public function contact(){
-        return view('contact');
-    }
 
-    public function about(){
-        return view('about');
+    public function login(){
+        return view('login');
     }
 
 
