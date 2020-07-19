@@ -10,6 +10,11 @@
     <header><a href="/"> หน้าแรก </a> | <a href="/about">เกียวกับ </a> | <a href="/contact">ติดต่อ </a> </header>
     <hr>
     <div>
+        @if(auth()->check())
+        hello, {{auth()->user()->name}}
+        @else
+        hello your normal <a href="/login"> start </a>
+        @endif
         @yield("content")
     </div>
 
